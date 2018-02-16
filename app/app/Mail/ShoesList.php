@@ -35,7 +35,9 @@ class ShoesList extends Mailable
     {
         $this->buildList();
 
-        return $this->view('shoes-list');
+        return $this
+            ->subject('BestShoes - Your shoes list!')
+            ->view('shoes-list');
     }
 
     private function buildList()

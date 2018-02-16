@@ -13,6 +13,6 @@ class FindShoesController extends Controller
     {
         $mail = new \App\Mail\ShoesList();
         $mail->args($request->all());
-        \Illuminate\Support\Facades\Mail::to('herve.guetin@agence-soon.fr')->send($mail);
+        \Illuminate\Support\Facades\Mail::to('miranda@runmway.com')->send($mail);
     }
 }
