@@ -45,6 +45,8 @@ class ShoesList extends Mailable
         $allProducts = $body->filter('li.vignette')->each(function (Crawler $listItem, $i) {
             return [
                 'link' => 'http://www.sarenza.com' . $listItem->filter('a.product-link')->extract(['href'])[0],
+                'name' => $listItem->filter('span.model')->text(),
+                'price' => $listItem->filter('span.price')->text(),
                 'img'  => $this->findSrc($listItem)
             ];
         });
