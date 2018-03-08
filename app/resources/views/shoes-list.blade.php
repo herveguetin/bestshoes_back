@@ -15,7 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- enable media queries for windows phone 8 -->
     <meta name="format-detection" content="date=no"> <!-- disable auto date linking in iOS 7-9 -->
     <meta name="format-detection" content="telephone=no"> <!-- disable auto telephone linking in iOS 7-9 -->
-    <title>Your BestShoes List</title>
+    <title>Votre sélection de chaussures BestShoes</title>
 
     <style type="text/css">
         body {
@@ -109,7 +109,7 @@
             <table border="0" width="600" cellpadding="0" cellspacing="0" class="container" style="width:600px;max-width:600px">
                 <tr>
                     <td class="container-padding header" align="left" style="font-family:Helvetica, Arial, sans-serif;font-size:24px;font-weight:bold;padding-bottom:12px;color:#DF4726;padding-left:24px;padding-right:24px">
-                        BestShoes - Your list!
+                        BestShoes - Votre sélection de chaussures
                     </td>
                 </tr>
                 <?php foreach($products as $product): ?>
