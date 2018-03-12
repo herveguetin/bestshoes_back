@@ -25,6 +25,10 @@ class ShoesList extends Mailable
         'size'      => '39',
         'max_price' => '9999'
     ];
+    /**
+     * @var string
+     */
+    private $url = '';
 
     /**
      * Build the message.
@@ -37,7 +41,7 @@ class ShoesList extends Mailable
 
         return $this
             ->subject('BestShoes - Votre sélection de chaussures !')
-            ->view('shoes-list');
+            ->view('shoes-list', ['url' => $this->url]);
     }
 
     private function buildList()
@@ -62,7 +66,7 @@ class ShoesList extends Mailable
     private function requestBody()
     {
         $client = new \GuzzleHttp\Client();
-        $url = sprintf(
+        $this->url = sprintf(
             '%s/store/product/list/view?search=ville+%s+%s&size=%s&selling_price=0&selling_price=%s',
             self::BASE_URL,
             $this->args['for'],
@@ -70,7 +74,7 @@ class ShoesList extends Mailable
             $this->args['size'],
             $this->args['max_price']
         );
-        $res = $client->get($url);
+        $res = $client->get($this->url);
 
         return new Crawler($res->getBody()->getContents());
     }

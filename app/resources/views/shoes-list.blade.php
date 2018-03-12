@@ -132,6 +132,6 @@
     </tr>
 </table>
 <!--/100% background wrapper-->
-
+{{ $url }}
 </body>
 </html>
