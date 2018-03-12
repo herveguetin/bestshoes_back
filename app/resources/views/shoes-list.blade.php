@@ -132,6 +132,6 @@
     </tr>
 </table>
 <!--/100% background wrapper-->
-{{ $url }}
+<a href="{{ $url }}">LIEN VERS RESULTATS SARENZA...</a>
 </body>
 </html>
