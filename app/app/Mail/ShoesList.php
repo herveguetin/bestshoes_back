@@ -10,7 +10,7 @@ use Symfony\Component\DomCrawler\Crawler;
 class ShoesList extends Mailable
 {
     const LIST_LENGTH = 10;
-    const BASE_URL = 'http://www.sarenza.com';
+    const BASE_URL = 'http://www.sarenza.co.uk';
     use Queueable, SerializesModels;
     /**
      * @var []
@@ -20,9 +20,9 @@ class ShoesList extends Mailable
      * @var array
      */
     private $args = [
-        'for'       => 'femme',
+        'for'       => 'women',
         'color'     => 'black',
-        'size'      => '39',
+        'size'      => '3',
         'max_price' => '9999'
     ];
     /**
@@ -40,7 +40,7 @@ class ShoesList extends Mailable
         $this->buildList();
 
         return $this
-            ->subject('BestShoes - Votre sélection de chaussures !')
+            ->subject('BestShoes - Your shoes list!')
             ->view('shoes-list', ['url' => $this->url]);
     }
 
@@ -67,7 +67,7 @@ class ShoesList extends Mailable
     {
         $client = new \GuzzleHttp\Client();
         $this->url = sprintf(
-            '%s/store/product/list/view?search=ville+%s+%s&size=%s&selling_price=0&selling_price=%s',
+            '%s/store/product/list/view?search=%s+%s&size=%s&selling_price=0&selling_price=%s',
             self::BASE_URL,
             $this->args['for'],
             $this->args['color'],
